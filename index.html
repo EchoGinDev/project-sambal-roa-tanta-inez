@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sambal Roa Tanta INEZ — Sambal Ikan Roa dari Palu, Sulawesi Tengah</title>
+<meta name="description" content="Sambal roa rumahan dari Tanta INEZ, dibuat langsung di Palu, Sulawesi Tengah. Tersedia varian tidak pedas dan pedas. Pesan lewat WhatsApp atau Facebook.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:      #241209;
+    --ink-soft: #6b5645;
+    --paper:    #f8f0e2;
+    --card:     #ffffff;
+    --line:     #e6d3b4;
+    --accent:   #c23b22;
+    --accent2:  #c98a1f;
+    --radius:   16px;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Inter', sans-serif; font-size:16px; line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Anton', sans-serif; font-weight:400; text-transform:uppercase;
+    line-height:.95; letter-spacing:.01em; margin:0;
+  }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  :focus-visible{ outline:3px solid var(--accent); outline-offset:2px; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(248,240,226,.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{ max-width:1080px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+  .brand{ font-family:'Anton', sans-serif; font-size:1.25rem; letter-spacing:.02em; text-transform:uppercase; }
+
+  .btn{
+    font-family:'Inter', sans-serif; font-weight:700; font-size:.85rem; text-transform:uppercase; letter-spacing:.03em;
+    padding:12px 20px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    border:2px solid transparent; transition:transform .15s ease, background .15s ease, color .15s ease;
+    min-height:44px;
+  }
+  .btn-wa{ background:#25D366; color:#fff; }
+  .btn-wa:hover{ background:#1da851; transform:translateY(-2px); }
+  .btn-fb{ background:#1877F2; color:#fff; }
+  .btn-fb:hover{ background:#145dc4; transform:translateY(-2px); }
+  .btn-outline{ background:transparent; border-color:var(--ink); color:var(--ink); }
+  .btn-outline:hover{ background:var(--ink); color:var(--paper); }
+  .btn-sm{ padding:9px 16px; font-size:.76rem; min-height:38px; }
+  .btn svg{ width:17px; height:17px; flex:none; }
+
+  .hero{ padding:56px 0 44px; text-align:center; }
+  .eyebrow{ font-size:.85rem; font-weight:600; color:var(--ink-soft); }
+  .hero-headline{ font-size:clamp(2.6rem, 9vw, 5.2rem); margin-top:14px; }
+  .hero-headline .fill{ -webkit-text-stroke:2px var(--ink); color:var(--paper); }
+  .hero-sub{ margin:16px auto 0; max-width:48ch; color:var(--ink-soft); font-size:1.05rem; }
+  .hero-cta{ margin-top:28px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+  .section{ padding:56px 0 88px; }
+  .section-head{ max-width:56ch; margin:0 auto 44px; text-align:center; }
+  .section-head h2{ font-size:clamp(1.9rem, 4.4vw, 2.8rem); }
+  .section-head p{ margin-top:12px; color:var(--ink-soft); }
+
+  .product-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .product-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .product-photo{
+    aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:700; text-align:center; padding:20px; overflow:hidden; position:relative;
+  }
+  .product-photo img{ width:100%; height:100%; object-fit:cover; }
+  .product-photo.not-spicy{ background:linear-gradient(150deg,#efdcb8,#c99a5c); }
+  .product-photo.spicy{ background:linear-gradient(150deg,#e79a6b,var(--accent)); }
+  .spice-flag{
+    position:absolute; top:14px; left:14px; background:rgba(36,18,9,.75); color:#fff;
+    font-family:'Inter',sans-serif; font-weight:700; font-size:.72rem; text-transform:uppercase; letter-spacing:.05em;
+    padding:6px 12px; border-radius:999px;
+  }
+  .product-body{ padding:26px 24px; display:flex; flex-direction:column; flex:1; }
+  .product-name{ font-family:'Anton', sans-serif; font-size:1.5rem; text-transform:uppercase; }
+  .product-size{ font-size:.84rem; color:var(--ink-soft); margin-top:4px; }
+  .spice-meter{ display:flex; align-items:center; gap:4px; margin-top:10px; }
+  .spice-meter svg{ width:16px; height:16px; }
+  .spice-meter .on{ color:var(--accent); }
+  .spice-meter .off{ color:var(--line); }
+  .spice-label{ font-size:.78rem; color:var(--ink-soft); margin-left:4px; }
+  .product-desc{ margin-top:12px; font-size:.94rem; color:var(--ink-soft); flex:1; }
+  .product-price{ margin-top:18px; font-family:'Anton', sans-serif; font-size:1.7rem; color:var(--accent); }
+  .product-price .unit{ font-family:'Inter',sans-serif; font-size:.78rem; font-weight:500; color:var(--ink-soft); text-transform:none; }
+
+  .cta-band{ background:var(--ink); color:var(--paper); border-radius:26px; padding:56px 32px; text-align:center; }
+  .cta-band h2{ color:#fff; font-size:clamp(1.7rem, 4.4vw, 2.6rem); }
+  .cta-band p{ margin-top:12px; color:#d9c6ac; }
+  .cta-band .hero-cta{ margin-top:26px; }
+
+  footer{ padding:44px 0 26px; border-top:1px solid var(--line); text-align:center; }
+  .footer-brand{ font-family:'Anton', sans-serif; font-size:1.2rem; text-transform:uppercase; }
+  .footer-desc{ margin-top:8px; color:var(--ink-soft); font-size:.9rem; max-width:40ch; margin-left:auto; margin-right:auto; }
+  .footer-links{ margin-top:20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .footer-bottom{ margin-top:32px; padding-top:18px; border-top:1px solid var(--line); font-size:.8rem; color:var(--ink-soft); }
+
+  @media (max-width: 720px){
+    .product-grid{ grid-template-columns:1fr; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .btn:hover{ transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Sambal Roa Tanta INEZ</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Dari Palu, Sulawesi Tengah — dibuat rumahan</span>
+    <h1 class="hero-headline"><span class="fill">Sambal Roa</span> Tanta INEZ</h1>
+    <p class="hero-sub">Diulek segar dari ikan roa asap pilihan. Tersedia dua varian — tidak pedas dan pedas — sesuai selera keluarga di rumah.</p>
+  </div>
+</section>
+
+
+<section class="section" id="produk">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="color:var(--accent); font-weight:700;">Produk Kami</span>
+      <h2 style="margin-top:10px;">Dua varian, satu rasa otentik</h2>
+      <p>Semua dibuat dari resep dan bahan yang sama — bedanya cuma di takaran cabai.</p>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Mau pesan yang mana?</h2>
+      <p>Chat langsung, sebutkan varian dan jumlahnya.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-wa" id="ctaWaBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c-5.4 0-9.8 4.4-9.8 9.8 0 1.7.5 3.4 1.3 4.9L2 21.8l5-1.3c1.4.8 3 1.2 4.9 1.2 5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2Zm5.7 13.9c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.9 1.5 1.9 2.4 1.3 1.2 2.4 1.5 2.7 1.7.3.2.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.7.8 2 .9.3.2.5.2.6.4.1.2.1 1-.2 1.6Z"/></svg>
+          WhatsApp
+        </a>
+        <a href="#" class="btn btn-fb" id="ctaFbBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 3h-2.2C10 3 8.5 4.6 8.5 7.3V10H6v3h2.5v8h3.2v-8h2.6l.4-3h-3V7.6c0-.8.3-1.3 1.4-1.3H15V3Z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-brand">Sambal Roa Tanta INEZ</div>
+    <p class="footer-desc">Sambal ikan roa rumahan dari Palu, Sulawesi Tengah. Pemesanan hanya melalui WhatsApp dan Facebook.</p>
+    <p class="footer-desc" id="footerAddress" style="margin-top:4px;"></p>
+    <div class="footer-bottom">© <span id="year"></span> Sambal Roa Tanta INEZ — UMKM rumahan, Palu</div>
+  </div>
+</footer>
+
+<script>
+const WA_NUMBER = "628XXXXXXXXXX"; // TODO: isi nomor WA asli di sini
+const FB_URL = "https://www.facebook.com/magrin.angelia.laudea";
+const STORE_ADDRESS = "Jl. Kasuari No. 35, Palu";
+
+const PRODUCTS = [
+  {
+    name: "Sambal Roa Tidak Pedas",
+    size: "350 gram",
+    price: 60000,
+    spiceLevel: 0,
+    image: "",
+    desc: "Rasa gurih ikan roa asap tanpa cabai — cocok untuk anak-anak atau yang tidak suka pedas."
+  },
+  {
+    name: "Sambal Roa Pedas",
+    size: "350 gram",
+    price: 60000,
+    spiceLevel: 3,
+    image: "",
+    desc: "Pedas otentik, diulek dari cabai segar bersama ikan roa asap pilihan."
+  }
+];
+
+function formatPrice(n){ return "Rp" + n.toLocaleString("id-ID"); }
+function waLink(message){ return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`; }
+
+function chiliIcon(filled){
+  return `<svg viewBox="0 0 24 24" fill="${filled ? "currentColor" : "none"}" stroke="currentColor" stroke-width="1.6" class="${filled ? "on" : "off"}" aria-hidden="true">
+    <path d="M9 3c-2 3-1 5 0 6-3 0-5 2-5 5a6 6 0 0 0 12 0c3-1 4-4 3-7-2 1-3 0-3-2-2 1-3 0-4-2Z"/>
+  </svg>`;
+}
+
+window.__placeholder = function(label){
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360">
+    <rect width="100%" height="100%" fill="#efdcb8"/>
+    <text x="50%" y="50%" font-family="sans-serif" font-size="18" fill="#8a6b3f"
+      text-anchor="middle" dominant-baseline="middle">${label}</text>
+  </svg>`;
+  return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+};
+
+function renderProducts(){
+  const grid = document.getElementById("productGrid");
+  grid.innerHTML = PRODUCTS.map(p => {
+    const isSpicy = p.spiceLevel > 0;
+    const spice = [1,2,3].map(lvl => chiliIcon(lvl <= p.spiceLevel)).join("");
+    const spiceText = p.spiceLevel === 0 ? "Tidak pedas" : p.spiceLevel === 3 ? "Sangat pedas" : "Pedas sedang";
+    return `
+    <article class="product-card">
+      <div class="product-photo ${isSpicy ? "spicy" : "not-spicy"}">
+        <span class="spice-flag">${isSpicy ? "Pedas" : "Tidak Pedas"}</span>
+        <img src="${p.image || window.__placeholder(p.name)}" alt="Foto ${p.name}, ukuran ${p.size}"
+             onerror="this.src=window.__placeholder('${p.name}')">
+      </div>
+      <div class="product-body">
+        <div class="product-name">${p.name}</div>
+        <div class="product-size">${p.size}</div>
+        <div class="spice-meter" role="img" aria-label="Tingkat kepedasan: ${spiceText}">
+          ${spice}<span class="spice-label">${spiceText}</span>
+        </div>
+        <p class="product-desc">${p.desc}</p>
+        <div class="product-price">${formatPrice(p.price)} <span class="unit">/ bungkus</span></div>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+function wireButtons(){
+  const defaultMsg = "Halo, saya mau tanya-tanya soal Sambal Roa Tanta INEZ.";
+  ["ctaWaBtn"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el){ el.href = waLink(defaultMsg); el.target = "_blank"; el.rel = "noopener noreferrer"; }
+  });
+  ["ctaFbBtn"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el){ el.href = FB_URL; el.target = "_blank"; el.rel = "noopener noreferrer"; }
+  });
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("footerAddress").textContent = "Alamat: " + STORE_ADDRESS;
+renderProducts();
+wireButtons();
+</script>
+</body>
+</html>
