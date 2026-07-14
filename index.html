@@ -5,10 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sambal Roa Tanta INEZ — Sambal Ikan Roa dari Palu, Sulawesi Tengah</title>
 <meta name="description" content="Sambal roa rumahan dari Tanta INEZ, dibuat langsung di Palu, Sulawesi Tengah. Tersedia varian tidak pedas dan pedas. Pesan lewat WhatsApp atau Facebook.">
+
+<!-- Open Graph & Twitter Card: menentukan tampilan preview saat link ini
+     dibagikan/di-paste di WhatsApp, Facebook, atau aplikasi lain.
+     TODO: ganti og:image dengan URL foto produk asli setelah di-hosting
+     (misal link raw dari GitHub) supaya preview-nya tampil dengan foto. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sambal Roa Tanta INEZ">
+<meta property="og:title" content="Sambal Roa Tanta INEZ — Pedas Otentik dari Palu">
+<meta property="og:description" content="Sambal roa rumahan asli Palu, Sulawesi Tengah. Tersedia varian tidak pedas dan pedas, 350 gram, Rp60.000/bungkus. Pesan via WhatsApp atau Facebook.">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sambal Roa Tanta INEZ — Pedas Otentik dari Palu">
+<meta name="twitter:description" content="Sambal roa rumahan asli Palu, Sulawesi Tengah. Tersedia varian tidak pedas dan pedas.">
+
+<meta name="theme-color" content="#241209">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c23b22' d='M9 3c-2 3-1 5 0 6-3 0-5 2-5 5a6 6 0 0 0 12 0c3-1 4-4 3-7-2 1-3 0-3-2-2 1-3 0-4-2Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* =========================================================
+     1. DESIGN TOKENS
+     ========================================================= */
   :root{
     --ink:      #241209;
     --ink-soft: #6b5645;
@@ -19,6 +38,10 @@
     --accent2:  #c98a1f;
     --radius:   16px;
   }
+
+  /* =========================================================
+     2. RESET & BASE
+     ========================================================= */
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
   body{
@@ -32,8 +55,35 @@
   a{ color:inherit; }
   img{ max-width:100%; display:block; }
   :focus-visible{ outline:3px solid var(--accent); outline-offset:2px; }
-  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
 
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+  .section{ padding:56px 0 88px; }
+  .section--tight{ padding-top:0; }               /* pengganti inline style="padding-top:0" */
+  .eyebrow{ font-size:.85rem; font-weight:600; color:var(--ink-soft); }
+  .eyebrow--accent{ color:var(--accent); font-weight:700; }  /* pengganti inline style eyebrow */
+
+  /* =========================================================
+     3. TOMBOL (WhatsApp / Facebook / outline)
+     ========================================================= */
+  .btn{
+    font-weight:700; font-size:.85rem; text-transform:uppercase; letter-spacing:.03em;
+    padding:12px 20px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    border:2px solid transparent; transition:transform .15s ease, background .15s ease, color .15s ease;
+    min-height:44px;
+  }
+  .btn-icon{ width:17px; height:17px; flex:none; display:inline-flex; }
+  .btn-icon svg{ width:100%; height:100%; }
+  .btn-wa{ background:#25D366; color:#fff; }
+  .btn-wa:hover{ background:#1da851; transform:translateY(-2px); }
+  .btn-fb{ background:#1877F2; color:#fff; }
+  .btn-fb:hover{ background:#145dc4; transform:translateY(-2px); }
+  .btn-outline{ background:transparent; border-color:var(--ink); color:var(--ink); }
+  .btn-outline:hover{ background:var(--ink); color:var(--paper); }
+  .btn-sm{ padding:9px 16px; font-size:.76rem; min-height:38px; }
+
+  /* =========================================================
+     4. NAV
+     ========================================================= */
   header.nav{
     position:sticky; top:0; z-index:50;
     background:rgba(248,240,226,.92); backdrop-filter:blur(6px);
@@ -42,41 +92,33 @@
   .nav-inner{ max-width:1080px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
   .brand{ font-family:'Anton', sans-serif; font-size:1.25rem; letter-spacing:.02em; text-transform:uppercase; }
 
-  .btn{
-    font-family:'Inter', sans-serif; font-weight:700; font-size:.85rem; text-transform:uppercase; letter-spacing:.03em;
-    padding:12px 20px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
-    border:2px solid transparent; transition:transform .15s ease, background .15s ease, color .15s ease;
-    min-height:44px;
-  }
-  .btn-wa{ background:#25D366; color:#fff; }
-  .btn-wa:hover{ background:#1da851; transform:translateY(-2px); }
-  .btn-fb{ background:#1877F2; color:#fff; }
-  .btn-fb:hover{ background:#145dc4; transform:translateY(-2px); }
-  .btn-outline{ background:transparent; border-color:var(--ink); color:var(--ink); }
-  .btn-outline:hover{ background:var(--ink); color:var(--paper); }
-  .btn-sm{ padding:9px 16px; font-size:.76rem; min-height:38px; }
-  .btn svg{ width:17px; height:17px; flex:none; }
-
+  /* =========================================================
+     5. HERO
+     ========================================================= */
   .hero{ padding:56px 0 44px; text-align:center; }
-  .eyebrow{ font-size:.85rem; font-weight:600; color:var(--ink-soft); }
   .hero-headline{ font-size:clamp(2.6rem, 9vw, 5.2rem); margin-top:14px; }
   .hero-headline .fill{ -webkit-text-stroke:2px var(--ink); color:var(--paper); }
   .hero-sub{ margin:16px auto 0; max-width:48ch; color:var(--ink-soft); font-size:1.05rem; }
   .hero-cta{ margin-top:28px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
 
-  .section{ padding:56px 0 88px; }
+  /* =========================================================
+     6. SECTION HEAD (judul + deskripsi tiap section)
+     ========================================================= */
   .section-head{ max-width:56ch; margin:0 auto 44px; text-align:center; }
-  .section-head h2{ font-size:clamp(1.9rem, 4.4vw, 2.8rem); }
+  .section-head h2{ font-size:clamp(1.9rem, 4.4vw, 2.8rem); margin-top:10px; }
   .section-head p{ margin-top:12px; color:var(--ink-soft); }
 
+  /* =========================================================
+     7. KARTU PRODUK
+     ========================================================= */
   .product-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
   .product-card{
     background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
     overflow:hidden; display:flex; flex-direction:column;
     transition:box-shadow .3s ease, border-color .3s ease;
-    scroll-margin-top:90px;
+    scroll-margin-top:90px; /* supaya tidak ketutup nav sticky saat auto-scroll */
   }
-  .product-card.highlight{
+  .product-card.is-highlighted{
     border-color:var(--accent); box-shadow:0 0 0 4px rgba(194,59,34,.18);
   }
   .product-photo{
@@ -88,7 +130,7 @@
   .product-photo.spicy{ background:linear-gradient(150deg,#e79a6b,var(--accent)); }
   .spice-flag{
     position:absolute; top:14px; left:14px; background:rgba(36,18,9,.75); color:#fff;
-    font-family:'Inter',sans-serif; font-weight:700; font-size:.72rem; text-transform:uppercase; letter-spacing:.05em;
+    font-weight:700; font-size:.72rem; text-transform:uppercase; letter-spacing:.05em;
     padding:6px 12px; border-radius:999px;
   }
   .product-body{ padding:26px 24px; display:flex; flex-direction:column; flex:1; }
@@ -96,24 +138,33 @@
   .product-size{ font-size:.84rem; color:var(--ink-soft); margin-top:4px; }
   .spice-meter{ display:flex; align-items:center; gap:4px; margin-top:10px; }
   .spice-meter svg{ width:16px; height:16px; }
-  .spice-meter .on{ color:var(--accent); }
-  .spice-meter .off{ color:var(--line); }
+  .spice-meter .is-on{ color:var(--accent); }
+  .spice-meter .is-off{ color:var(--line); }
   .spice-label{ font-size:.78rem; color:var(--ink-soft); margin-left:4px; }
   .product-desc{ margin-top:12px; font-size:.94rem; color:var(--ink-soft); flex:1; }
   .product-price{ margin-top:18px; font-family:'Anton', sans-serif; font-size:1.7rem; color:var(--accent); }
   .product-price .unit{ font-family:'Inter',sans-serif; font-size:.78rem; font-weight:500; color:var(--ink-soft); text-transform:none; }
 
+  /* =========================================================
+     8. CTA BAND
+     ========================================================= */
   .cta-band{ background:var(--ink); color:var(--paper); border-radius:26px; padding:56px 32px; text-align:center; }
   .cta-band h2{ color:#fff; font-size:clamp(1.7rem, 4.4vw, 2.6rem); }
   .cta-band p{ margin-top:12px; color:#d9c6ac; }
   .cta-band .hero-cta{ margin-top:26px; }
 
+  /* =========================================================
+     9. FOOTER
+     ========================================================= */
   footer{ padding:44px 0 26px; border-top:1px solid var(--line); text-align:center; }
   .footer-brand{ font-family:'Anton', sans-serif; font-size:1.2rem; text-transform:uppercase; }
   .footer-desc{ margin-top:8px; color:var(--ink-soft); font-size:.9rem; max-width:40ch; margin-left:auto; margin-right:auto; }
-  .footer-links{ margin-top:20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .footer-desc + .footer-desc{ margin-top:4px; }  /* jarak lebih kecil antar baris deskripsi */
   .footer-bottom{ margin-top:32px; padding-top:18px; border-top:1px solid var(--line); font-size:.8rem; color:var(--ink-soft); }
 
+  /* =========================================================
+     10. RESPONSIVE & ACCESSIBILITY
+     ========================================================= */
   @media (max-width: 720px){
     .product-grid{ grid-template-columns:1fr; }
   }
@@ -138,31 +189,28 @@
   </div>
 </section>
 
-
 <section class="section" id="produk">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow" style="color:var(--accent); font-weight:700;">Produk Kami</span>
-      <h2 style="margin-top:10px;">Dua varian, satu rasa otentik</h2>
+      <span class="eyebrow eyebrow--accent">Produk Kami</span>
+      <h2>Dua varian, satu rasa otentik</h2>
       <p>Semua dibuat dari resep dan bahan yang sama — bedanya cuma di takaran cabai.</p>
     </div>
-    <div class="product-grid" id="productGrid"></div>
+    <div class="product-grid" id="productGrid"><!-- diisi oleh renderProducts() --></div>
   </div>
 </section>
 
-<section class="section" style="padding-top:0;">
+<section class="section section--tight">
   <div class="wrap">
     <div class="cta-band">
       <h2>Mau pesan yang mana?</h2>
       <p>Chat langsung, sebutkan varian dan jumlahnya.</p>
-      <div class="hero-cta">
-        <a href="#" class="btn btn-wa" id="ctaWaBtn">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c-5.4 0-9.8 4.4-9.8 9.8 0 1.7.5 3.4 1.3 4.9L2 21.8l5-1.3c1.4.8 3 1.2 4.9 1.2 5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2Zm5.7 13.9c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.9 1.5 1.9 2.4 1.3 1.2 2.4 1.5 2.7 1.7.3.2.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.7.8 2 .9.3.2.5.2.6.4.1.2.1 1-.2 1.6Z"/></svg>
-          WhatsApp
+      <div class="hero-cta" data-order-group>
+        <a href="#" class="btn btn-wa" data-order="wa">
+          <span class="btn-icon" data-icon="wa"></span> WhatsApp
         </a>
-        <a href="#" class="btn btn-fb" id="ctaFbBtn">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 3h-2.2C10 3 8.5 4.6 8.5 7.3V10H6v3h2.5v8h3.2v-8h2.6l.4-3h-3V7.6c0-.8.3-1.3 1.4-1.3H15V3Z"/></svg>
-          Facebook
+        <a href="#" class="btn btn-fb" data-order="fb">
+          <span class="btn-icon" data-icon="fb"></span> Facebook
         </a>
       </div>
     </div>
@@ -173,15 +221,21 @@
   <div class="wrap">
     <div class="footer-brand">Sambal Roa Tanta INEZ</div>
     <p class="footer-desc">Sambal ikan roa rumahan dari Palu, Sulawesi Tengah. Pemesanan hanya melalui WhatsApp dan Facebook.</p>
-    <p class="footer-desc" id="footerAddress" style="margin-top:4px;"></p>
+    <p class="footer-desc" id="footerAddress"></p>
     <div class="footer-bottom">© <span id="year"></span> Sambal Roa Tanta INEZ — UMKM rumahan, Palu</div>
   </div>
 </footer>
 
 <script>
-const WA_NUMBER = "628XXXXXXXXXX"; // TODO: isi nomor WA asli di sini
-const FB_URL = "https://www.facebook.com/magrin.angelia.laudea";
-const STORE_ADDRESS = "Jl. Kasuari No. 35, Palu";
+/* =====================================================================
+   1. KONFIGURASI — satu-satunya tempat yang perlu diedit sehari-hari
+   ===================================================================== */
+const CONFIG = {
+  waNumber: "628XXXXXXXXXX",   // TODO: isi nomor WA asli (format: kode negara tanpa "+"/"0" di depan)
+  facebookUrl: "https://www.facebook.com/magrin.angelia.laudea",
+  storeAddress: "Jl. Kasuari No. 35, Palu",
+  defaultOrderMessage: "Halo, saya mau tanya-tanya soal Sambal Roa Tanta INEZ.",
+};
 
 const PRODUCTS = [
   {
@@ -189,9 +243,9 @@ const PRODUCTS = [
     name: "Sambal Roa Tidak Pedas",
     size: "350 gram",
     price: 60000,
-    spiceLevel: 0,
-    image: "",
-    desc: "Rasa gurih ikan roa asap tanpa cabai — cocok untuk anak-anak atau yang tidak suka pedas."
+    spiceLevel: 0, // 0 = tidak pedas, 1-3 = tingkat kepedasan
+    image: "",     // path/URL foto produk, kosongkan untuk pakai placeholder otomatis
+    desc: "Rasa gurih ikan roa asap tanpa cabai — cocok untuk anak-anak atau yang tidak suka pedas.",
   },
   {
     slug: "pedas",
@@ -200,110 +254,160 @@ const PRODUCTS = [
     price: 60000,
     spiceLevel: 3,
     image: "",
-    desc: "Pedas otentik, diulek dari cabai segar bersama ikan roa asap pilihan."
-  }
+    desc: "Pedas otentik, diulek dari cabai segar bersama ikan roa asap pilihan.",
+  },
 ];
 
-function formatPrice(n){ return "Rp" + n.toLocaleString("id-ID"); }
-function waLink(message){ return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`; }
+/* =====================================================================
+   2. IKON — satu sumber, dipakai ulang di semua tombol/indikator
+   ===================================================================== */
+const ICONS = {
+  wa: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c-5.4 0-9.8 4.4-9.8 9.8 0 1.7.5 3.4 1.3 4.9L2 21.8l5-1.3c1.4.8 3 1.2 4.9 1.2 5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2Zm5.7 13.9c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.9 1.5 1.9 2.4 1.3 1.2 2.4 1.5 2.7 1.7.3.2.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.7.8 2 .9.3.2.5.2.6.4.1.2.1 1-.2 1.6Z"/></svg>`,
+  fb: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 3h-2.2C10 3 8.5 4.6 8.5 7.3V10H6v3h2.5v8h3.2v-8h2.6l.4-3h-3V7.6c0-.8.3-1.3 1.4-1.3H15V3Z"/></svg>`,
+  chiliOn: `<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.6" class="is-on" aria-hidden="true"><path d="M9 3c-2 3-1 5 0 6-3 0-5 2-5 5a6 6 0 0 0 12 0c3-1 4-4 3-7-2 1-3 0-3-2-2 1-3 0-4-2Z"/></svg>`,
+  chiliOff: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="is-off" aria-hidden="true"><path d="M9 3c-2 3-1 5 0 6-3 0-5 2-5 5a6 6 0 0 0 12 0c3-1 4-4 3-7-2 1-3 0-3-2-2 1-3 0-4-2Z"/></svg>`,
+};
 
-function chiliIcon(filled){
-  return `<svg viewBox="0 0 24 24" fill="${filled ? "currentColor" : "none"}" stroke="currentColor" stroke-width="1.6" class="${filled ? "on" : "off"}" aria-hidden="true">
-    <path d="M9 3c-2 3-1 5 0 6-3 0-5 2-5 5a6 6 0 0 0 12 0c3-1 4-4 3-7-2 1-3 0-3-2-2 1-3 0-4-2Z"/>
-  </svg>`;
-}
+/* =====================================================================
+   3. UTILITAS
+   ===================================================================== */
+const formatPrice = (amount) => "Rp" + amount.toLocaleString("id-ID");
 
-window.__placeholder = function(label){
+const buildWaLink = (message) =>
+  `https://wa.me/${CONFIG.waNumber}?text=${encodeURIComponent(message)}`;
+
+const spiceLevelLabel = (level) => {
+  if (level === 0) return "Tidak pedas";
+  if (level === 3) return "Sangat pedas";
+  return "Pedas sedang";
+};
+
+const buildSpiceMeter = (level) =>
+  [1, 2, 3].map((step) => (step <= level ? ICONS.chiliOn : ICONS.chiliOff)).join("");
+
+/** Placeholder foto otomatis kalau field `image` produk masih kosong / gagal dimuat. */
+function placeholderImage(label) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360">
     <rect width="100%" height="100%" fill="#efdcb8"/>
     <text x="50%" y="50%" font-family="sans-serif" font-size="18" fill="#8a6b3f"
       text-anchor="middle" dominant-baseline="middle">${label}</text>
   </svg>`;
   return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
-};
-
-function renderProducts(){
-  const grid = document.getElementById("productGrid");
-  grid.innerHTML = PRODUCTS.map(p => {
-    const isSpicy = p.spiceLevel > 0;
-    const spice = [1,2,3].map(lvl => chiliIcon(lvl <= p.spiceLevel)).join("");
-    const spiceText = p.spiceLevel === 0 ? "Tidak pedas" : p.spiceLevel === 3 ? "Sangat pedas" : "Pedas sedang";
-    return `
-    <article class="product-card" id="produk-${p.slug}">
-      <div class="product-photo ${isSpicy ? "spicy" : "not-spicy"}">
-        <span class="spice-flag">${isSpicy ? "Pedas" : "Tidak Pedas"}</span>
-        <img src="${p.image || window.__placeholder(p.name)}" alt="Foto ${p.name}, ukuran ${p.size}"
-             onerror="this.src=window.__placeholder('${p.name}')">
-      </div>
-      <div class="product-body">
-        <div class="product-name">${p.name}</div>
-        <div class="product-size">${p.size}</div>
-        <div class="spice-meter" role="img" aria-label="Tingkat kepedasan: ${spiceText}">
-          ${spice}<span class="spice-label">${spiceText}</span>
-        </div>
-        <p class="product-desc">${p.desc}</p>
-        <div class="product-price">${formatPrice(p.price)} <span class="unit">/ bungkus</span></div>
-      </div>
-    </article>`;
-  }).join("");
 }
+window.placeholderImage = placeholderImage; // dipakai oleh onerror="" di tag <img>
 
-function wireButtons(){
-  const defaultMsg = "Halo, saya mau tanya-tanya soal Sambal Roa Tanta INEZ.";
-  ["ctaWaBtn"].forEach(id => {
-    const el = document.getElementById(id);
-    if (el){ el.href = waLink(defaultMsg); el.target = "_blank"; el.rel = "noopener noreferrer"; }
-  });
-  ["ctaFbBtn"].forEach(id => {
-    const el = document.getElementById(id);
-    if (el){ el.href = FB_URL; el.target = "_blank"; el.rel = "noopener noreferrer"; }
-  });
+/**
+ * Membersihkan nilai parameter URL sebelum dipakai:
+ * - lowercase & trim
+ * - batasi panjang
+ * - hanya izinkan huruf kecil, angka, dan strip
+ */
+function sanitizeSlug(rawValue) {
+  if (!rawValue) return "";
+  return rawValue
+    .toLowerCase()
+    .trim()
+    .slice(0, 40)
+    .replace(/[^a-z0-9-]/g, "");
 }
 
 /* =====================================================================
-   FILTER PARAMETER URL (dengan sanitasi & validasi)
+   4. RENDER — mengubah data (CONFIG/PRODUCTS) menjadi HTML
+   ===================================================================== */
+function renderProductCard(product) {
+  const isSpicy = product.spiceLevel > 0;
+  const spiceMeter = buildSpiceMeter(product.spiceLevel);
+  const spiceText = spiceLevelLabel(product.spiceLevel);
+  const photoSrc = product.image || placeholderImage(product.name);
+
+  return `
+    <article class="product-card" id="produk-${product.slug}">
+      <div class="product-photo ${isSpicy ? "spicy" : "not-spicy"}">
+        <span class="spice-flag">${isSpicy ? "Pedas" : "Tidak Pedas"}</span>
+        <img src="${photoSrc}" alt="Foto ${product.name}, ukuran ${product.size}"
+             loading="lazy" decoding="async" width="480" height="360"
+             onerror="this.src=window.placeholderImage('${product.name}')">
+      </div>
+      <div class="product-body">
+        <div class="product-name">${product.name}</div>
+        <div class="product-size">${product.size}</div>
+        <div class="spice-meter" role="img" aria-label="Tingkat kepedasan: ${spiceText}">
+          ${spiceMeter}<span class="spice-label">${spiceText}</span>
+        </div>
+        <p class="product-desc">${product.desc}</p>
+        <div class="product-price">${formatPrice(product.price)} <span class="unit">/ bungkus</span></div>
+      </div>
+    </article>`;
+}
+
+function renderProducts() {
+  const grid = document.getElementById("productGrid");
+  grid.innerHTML = PRODUCTS.map(renderProductCard).join("");
+}
+
+/** Isi ikon ke semua tombol pemesanan dan pasang link WA/FB berdasarkan atribut data-order. */
+function wireOrderButtons() {
+  document.querySelectorAll('[data-order="wa"]').forEach((btn) => {
+    btn.href = buildWaLink(CONFIG.defaultOrderMessage);
+    btn.target = "_blank";
+    btn.rel = "noopener noreferrer";
+  });
+
+  document.querySelectorAll('[data-order="fb"]').forEach((btn) => {
+    btn.href = CONFIG.facebookUrl;
+    btn.target = "_blank";
+    btn.rel = "noopener noreferrer";
+  });
+
+  document.querySelectorAll("[data-icon]").forEach((el) => {
+    el.innerHTML = ICONS[el.dataset.icon] || "";
+  });
+}
+
+function renderFooterInfo() {
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("footerAddress").textContent = "Alamat: " + CONFIG.storeAddress;
+}
+
+/* =====================================================================
+   5. FILTER PARAMETER URL (dengan sanitasi & whitelist)
+
    Contoh pemakaian:
    namasite.com/?varian=pedas        -> auto-scroll & sorot produk pedas
    namasite.com/?varian=tidak-pedas  -> auto-scroll & sorot produk tidak pedas
 
-   Kenapa perlu difilter, bukan langsung dipakai mentah-mentah:
-   - Parameter URL berasal dari luar (bisa diketik siapa saja), jadi tidak
-     boleh dipercaya begitu saja.
-   - Kita hanya menerima nilai yang PERSIS cocok dengan salah satu slug
-     produk yang memang ada (whitelist), bukan sembarang teks.
-   - Karakter di luar huruf kecil, angka, dan strip dibuang duluan supaya
-     nilai yang diproses selalu bersih dan dapat diprediksi.
+   Kenapa difilter, bukan dipakai mentah-mentah:
+   - Parameter URL berasal dari luar dan bisa diisi apa saja, jadi tidak
+     boleh langsung dipercaya.
+   - Nilai wajib cocok persis dengan salah satu `slug` di PRODUCTS
+     (whitelist) — bukan sembarang teks.
    ===================================================================== */
-function sanitizeSlug(raw){
-  if (!raw) return "";
-  return raw
-    .toLowerCase()
-    .trim()
-    .slice(0, 40)                 // batasi panjang, jaga-jaga input aneh/kepanjangan
-    .replace(/[^a-z0-9-]/g, "");  // hanya izinkan huruf kecil, angka, dan strip
-}
-
-function applyUrlFilter(){
+function highlightProductFromUrl() {
   const params = new URLSearchParams(window.location.search);
-  const clean = sanitizeSlug(params.get("varian"));
-  if (!clean) return;
+  const requestedSlug = sanitizeSlug(params.get("varian"));
+  if (!requestedSlug) return;
 
-  // Whitelist: hanya slug yang benar-benar ada di data produk yang diterima
-  const validSlugs = PRODUCTS.map(p => p.slug);
-  if (!validSlugs.includes(clean)) return;
+  const isKnownProduct = PRODUCTS.some((p) => p.slug === requestedSlug);
+  if (!isKnownProduct) return;
 
-  const target = document.getElementById("produk-" + clean);
-  if (!target) return;
+  const targetCard = document.getElementById("produk-" + requestedSlug);
+  if (!targetCard) return;
 
-  target.classList.add("highlight");
-  target.scrollIntoView({ behavior: "smooth", block: "center" });
+  targetCard.classList.add("is-highlighted");
+  targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
-document.getElementById("year").textContent = new Date().getFullYear();
-document.getElementById("footerAddress").textContent = "Alamat: " + STORE_ADDRESS;
-renderProducts();
-wireButtons();
-applyUrlFilter();
+/* =====================================================================
+   6. INIT
+   ===================================================================== */
+function init() {
+  renderProducts();
+  wireOrderButtons();
+  renderFooterInfo();
+  highlightProductFromUrl();
+}
+
+init();
 </script>
 </body>
 </html>
