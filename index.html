@@ -73,6 +73,11 @@
   .product-card{
     background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
     overflow:hidden; display:flex; flex-direction:column;
+    transition:box-shadow .3s ease, border-color .3s ease;
+    scroll-margin-top:90px;
+  }
+  .product-card.highlight{
+    border-color:var(--accent); box-shadow:0 0 0 4px rgba(194,59,34,.18);
   }
   .product-photo{
     aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;
@@ -180,14 +185,16 @@ const STORE_ADDRESS = "Jl. Kasuari No. 35, Palu";
 
 const PRODUCTS = [
   {
+    slug: "tidak-pedas",
     name: "Sambal Roa Tidak Pedas",
     size: "350 gram",
     price: 60000,
     spiceLevel: 0,
-    image: "images/roa_sedang.png",
+    image: "",
     desc: "Rasa gurih ikan roa asap tanpa cabai — cocok untuk anak-anak atau yang tidak suka pedas."
   },
   {
+    slug: "pedas",
     name: "Sambal Roa Pedas",
     size: "350 gram",
     price: 60000,
@@ -222,7 +229,7 @@ function renderProducts(){
     const spice = [1,2,3].map(lvl => chiliIcon(lvl <= p.spiceLevel)).join("");
     const spiceText = p.spiceLevel === 0 ? "Tidak pedas" : p.spiceLevel === 3 ? "Sangat pedas" : "Pedas sedang";
     return `
-    <article class="product-card">
+    <article class="product-card" id="produk-${p.slug}">
       <div class="product-photo ${isSpicy ? "spicy" : "not-spicy"}">
         <span class="spice-flag">${isSpicy ? "Pedas" : "Tidak Pedas"}</span>
         <img src="${p.image || window.__placeholder(p.name)}" alt="Foto ${p.name}, ukuran ${p.size}"
@@ -253,10 +260,50 @@ function wireButtons(){
   });
 }
 
+/* =====================================================================
+   FILTER PARAMETER URL (dengan sanitasi & validasi)
+   Contoh pemakaian:
+   namasite.com/?varian=pedas        -> auto-scroll & sorot produk pedas
+   namasite.com/?varian=tidak-pedas  -> auto-scroll & sorot produk tidak pedas
+
+   Kenapa perlu difilter, bukan langsung dipakai mentah-mentah:
+   - Parameter URL berasal dari luar (bisa diketik siapa saja), jadi tidak
+     boleh dipercaya begitu saja.
+   - Kita hanya menerima nilai yang PERSIS cocok dengan salah satu slug
+     produk yang memang ada (whitelist), bukan sembarang teks.
+   - Karakter di luar huruf kecil, angka, dan strip dibuang duluan supaya
+     nilai yang diproses selalu bersih dan dapat diprediksi.
+   ===================================================================== */
+function sanitizeSlug(raw){
+  if (!raw) return "";
+  return raw
+    .toLowerCase()
+    .trim()
+    .slice(0, 40)                 // batasi panjang, jaga-jaga input aneh/kepanjangan
+    .replace(/[^a-z0-9-]/g, "");  // hanya izinkan huruf kecil, angka, dan strip
+}
+
+function applyUrlFilter(){
+  const params = new URLSearchParams(window.location.search);
+  const clean = sanitizeSlug(params.get("varian"));
+  if (!clean) return;
+
+  // Whitelist: hanya slug yang benar-benar ada di data produk yang diterima
+  const validSlugs = PRODUCTS.map(p => p.slug);
+  if (!validSlugs.includes(clean)) return;
+
+  const target = document.getElementById("produk-" + clean);
+  if (!target) return;
+
+  target.classList.add("highlight");
+  target.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
 document.getElementById("year").textContent = new Date().getFullYear();
 document.getElementById("footerAddress").textContent = "Alamat: " + STORE_ADDRESS;
 renderProducts();
 wireButtons();
+applyUrlFilter();
 </script>
 </body>
 </html>
